@@ -74,8 +74,15 @@ function generatePlayer() {
     // pick random last name from lastNames array
     // pick random height from 180-220 cm
     // start each player with 0 points and 0 fouls
+    return {
+        FirstName: (Math.random() * (10)).toFixed(),
+        LastName: (Math.random() * (10)).toFixed(),
+        PlayerHeight: (Math.random() * (220 - 180) + 180).toFixed(),
+        Points: 0,
+        Fouls:0
+    }
 }
-
+generatePlayer()
 function updateGameTime(newTime) {
     gameTimeNum.innerText = newTime;
 }
