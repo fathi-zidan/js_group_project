@@ -98,9 +98,17 @@ function updateGameTime(newTime) {
 function updateTeamScoreInUI(team, addPoints) {
     // add correct flow - if team is A - update A score, else - update B score
 
-    // if team === A:
-    const teamAScoreNum = parseInt(teamAScore.innerText);
-    teamAScoreNum += addPoints;
-    teamAScore.innerText = teamAScoreNum;
-    // same if team === B
+    if (team === 'A'){
+        const teamAScoreNum = parseInt(teamAScore.innerText);
+        teamAScoreNum += addPoints;
+        teamAScore.innerText = teamAScoreNum;
+
+    }else if(team === 'B'){
+        const teamBScoreNum = parseInt(teamBScore.innerText);
+        teamBScoreNum += addPoints;
+        teamBScore.innerText = teamBScoreNum;
+
+    }
+    
+    
 }
