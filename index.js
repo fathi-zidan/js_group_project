@@ -44,11 +44,15 @@ function startGame() {
   updateMsg("start game!");
   let totalTime = 0;
   // start timer, generate random events, update date accordingly until game is done.
+  let currentEventTimer = 0;
   let gameInterval = setInterval(function () {
     if (totalTime < gameTime) {
       // generate events if X amount of time passed from the last event.
       totalTime += 1;
       updateGameTime(totalTime);
+
+      
+
     } else {
       clearInterval(gameInterval);
       updateMsg("game over!");
@@ -119,4 +123,3 @@ function updateTeamScoreInUI(team, addPoints) {
     
     
 }
-
