@@ -33,6 +33,7 @@ const teamScore = document.getElementById("teamScore");
 startBtn.addEventListener("click", startGame);
 function startGame() {
   updateMsg("start game!");
+  generateTeams();
   let totalTime = 0;
   // start timer, generate random events, update date accordingly until game is done.
   let currentEventTimer = 0;
@@ -63,7 +64,7 @@ function startGame() {
         updateMsg("It is Tie " + teamAScoreNum);
       }
     }
-  }, 100);
+  }, 1000);
   // when the game time is done - check which team won and generate the message with team name, final score, and top scorrer from the team
 }
 function updateMsg(newMsg) {
@@ -73,6 +74,7 @@ function generateTeams() {
   // run generate player 5 times for each team
   // populate each team array with 5 players each
   generateTeam(teamA, 5);
+  console.log(teamA);
   generateTeam(teamB, 5);
 }
 function generateTeam(teamArray, numOfPLayers) {
@@ -86,8 +88,8 @@ function generatePlayer() {
   // pick random height from 180-220 cm
   // start each player with 0 points and 0 fouls
   return {
-    FirstName: (Math.random() * 10).toFixed(),
-    LastName: (Math.random() * 10).toFixed(),
+    FirstName: firstNames[(Math.random() * 9).toFixed()],
+    LastName: lastNames[(Math.random() * 9).toFixed()],
     PlayerHeight: (Math.random() * (220 - 180) + 180).toFixed(),
     Points: 0,
     Fouls: 0,
@@ -119,6 +121,8 @@ function generateEvent(){
     //0 goal, 1 foul
     let eventType =parseInt((Math.random() * 1).toFixed());
 
+    let currentEventMessage = "";
+
     switch (eventType) {
         case 0:
             team = team == 1 ? 'A' : "B";
@@ -127,17 +131,24 @@ function generateEvent(){
             
             if(team==='A'){
                 teamA[randomPlayer].Points += point;
+                currentEventMessage ="GOAL: " + teamA[randomPlayer].FirstName +" " +teamA[randomPlayer].LastName +` scored ${point} points`
+                
             } else {
                 teamB[randomPlayer].Points += point;
+                currentEventMessage ="GOAL: " + teamB[randomPlayer].FirstName +" " +teamB[randomPlayer].LastName +` scored ${point} points`
             }
+
+            
 
             break;
         case 1:
           team = team == 1 ? 'A' : "B";
             if(team==='A'){
                 teamA[randomPlayer].Fouls ++;
+                currentEventMessage ="FOUL:" + teamA[randomPlayer].FirstName +" " +teamA[randomPlayer].LastName;
             } else {
                 teamB[randomPlayer].Fouls ++;
+                currentEventMessage ="FOUL:" + teamB[randomPlayer].FirstName +" " +teamB[randomPlayer].LastName;
             }
             if(teamA[randomPlayer].Fouls == 6){
               teamA[randomPlayer].isSuspended = true;
@@ -150,6 +161,8 @@ function generateEvent(){
         default:
             break;
     }
+
+    updateMsg(currentEventMessage);
 
     
 }
