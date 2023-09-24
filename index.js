@@ -68,8 +68,8 @@ teamB.splice(0,teamB.length);
       clearInterval(gameInterval);
       updateMsg("game over!");
       // summarize the game
-      const teamAScoreNum = teamAScore.innerHTML;
-      const teamBScoreNum = teamBScore.innerHTML;
+      const teamAScoreNum = parseInt(teamAScore.innerHTML);
+      const teamBScoreNum = parseInt(teamBScore.innerHTML);
       if (teamAScoreNum > teamBScoreNum) {
         updateMsg("Team A WON " + teamAScoreNum);
         basketball.style.animation = "winnerA 10s "
