@@ -67,6 +67,14 @@ function updateMsg(newMsg) {
 function generateTeams() {
     // run generate player 5 times for each team
     // populate each team array with 5 players each
+    generateTeam(teamA, 5);
+    generateTeam(teamB, 5);
+}
+
+function generateTeam(teamArray, numOfPLayers){
+    for(let i=0; i<numOfPLayers; i++){
+        teamArray.push(generatePlayer());
+    }
 }
 
 function generatePlayer() {
