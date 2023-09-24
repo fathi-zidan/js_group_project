@@ -117,12 +117,12 @@ function generateEvent(){
     let randomPlayer = (Math.random() * 4).toFixed();
 
     //0 goal, 1 foul
-    let eventType = (Math.random() * 1).toFixed();
+    let eventType =parseInt((Math.random() * 1).toFixed());
 
     switch (eventType) {
         case 0:
             team = team == 1 ? 'A' : "B";
-            let point = (Math.random() * (3 - 2 ) + 2).toFixed();
+            let point =parseInt((Math.random() * (3 - 2 ) + 2).toFixed());
             updateTeamScoreInUI(team , point);
             
             if(team==='A'){
