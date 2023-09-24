@@ -41,7 +41,13 @@ function startGame() {
       // generate events if X amount of time passed from the last event.
       totalTime += 1;
       updateGameTime(totalTime);
+      
+      currentEventTimer++;
+      if(currentEventTimer >= eventEveryXtime){
+        currentEventTimer = 0;
         generateEvent();
+      }
+      
       
     } else {
       clearInterval(gameInterval);
@@ -104,7 +110,35 @@ function updateTeamScoreInUI(team, addPoints) {
     
 }
 function generateEvent(){
+
+    console.log("Event");
     let team = (Math.random() * (2 - 1 ) + 1).toFixed();
-    team = team == 1 ? 'A' : "B";
-    updateTeamScoreInUI(team , (Math.random() * (3 - 2 ) + 2).toFixed())
+
+    let randomPlayer = (Math.random() * 4).toFixed();
+
+    //0 goal, 1 foul
+    let eventType = (Math.random() * 1).toFixed();
+
+    switch (eventType) {
+        case 0:
+            team = team == 1 ? 'A' : "B";
+            let point = (Math.random() * (3 - 2 ) + 2).toFixed();
+            updateTeamScoreInUI(team , point);
+            
+            if(team==='A'){
+                teamA[randomPlayer].Points += point;
+            } else {
+                teamB[randomPlayer].Points += point;
+            }
+
+            break;
+        case 1:
+            //FOULS
+            break;
+    
+        default:
+            break;
+    }
+
+    
 }
