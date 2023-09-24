@@ -79,24 +79,24 @@ function generateTeams() {
 }
 
 function generateTeam(teamArray, numOfPLayers) {
-  for (let i = 0; i < numOfPLayers; i++) {
-    teamArray.push(generatePlayer());
-  }
+    for (let i = 0; i < numOfPLayers; i++) {
+        teamArray.push(generatePlayer());
+    }
 }
 function generatePlayer() {
-  // pick random first name from firstNames array
+    // pick random first name from firstNames array
 
-  // pick random last name from lastNames array
-  // pick random height from 180-220 cm
+    // pick random last name from lastNames array
+    // pick random height from 180-220 cm
 
-  // start each player with 0 points and 0 fouls
-  return {
-    FirstName: (Math.random() * 10).toFixed(),
-    LastName: (Math.random() * 10).toFixed(),
-    PlayerHeight: (Math.random() * (220 - 180) + 180).toFixed(),
-    Points: 0,
-    Fouls: 0,
-  };
+    // start each player with 0 points and 0 fouls
+    return {
+        FirstName: (Math.random() * (10)).toFixed(),
+        LastName: (Math.random() * (10)).toFixed(),
+        PlayerHeight: (Math.random() * (220 - 180) + 180).toFixed(),
+        Points: 0,
+        Fouls: 0
+    }
 }
 function updateGameTime(newTime) {
   gameTimeNum.innerText = newTime;
@@ -104,6 +104,7 @@ function updateGameTime(newTime) {
 
 function updateTeamScoreInUI(team, addPoints) {
     // add correct flow - if team is A - update A score, else - update B score
+
 
     if (team === 'A'){
         let teamAScoreNum = parseInt(teamAScore.innerText);
@@ -116,7 +117,4 @@ function updateTeamScoreInUI(team, addPoints) {
         teamBScore.innerText = teamBScoreNum;
 
     }
-    
-    
 }
-
