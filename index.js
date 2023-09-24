@@ -4,6 +4,8 @@ const gameTimeNum = document.getElementById("gameTimeNum");
 const teamAScore = document.getElementById("teamAScore");
 const teamBScore = document.getElementById("teamBScore");
 const teamScore = document.getElementById("teamScore");
+const goalAudio = document.getElementById("goalAudio");
+const foulAudio = document.getElementById("foulAudio");
 /*
     INSTRUCTIONS
     ** game
@@ -95,7 +97,7 @@ teamB.splice(0,teamB.length);
         }
       });
     }
-  }, 100);
+  }, 500);
   // when the game time is done - check which team won and generate the message with team name, final score, and top scorrer from the team
 }
 function updateMsg(newMsg) {
@@ -157,6 +159,8 @@ function generateEvent(){
             team = team == 1 ? 'A' : "B";
             let point =parseInt((Math.random() * (3 - 2 ) + 2).toFixed());
             updateTeamScoreInUI(team , point);
+            goalAudio.pause();
+            goalAudio.play();
             
             if(team==='A'){
                 teamA[randomPlayer].Points += point;
@@ -172,6 +176,9 @@ function generateEvent(){
             break;
         case 1:
           team = team == 1 ? 'A' : "B";
+          foulAudio.pause();
+          foulAudio.play();
+
             if(team==='A'){
                 teamA[randomPlayer].Fouls ++;
                 currentEventMessage ="FOUL:" + teamA[randomPlayer].FirstName +" " +teamA[randomPlayer].LastName;
