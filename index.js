@@ -91,7 +91,6 @@ function generatePlayer() {
         Fouls:0
     }
 }
-generatePlayer()
 function updateGameTime(newTime) {
     gameTimeNum.innerText = newTime;
 }
