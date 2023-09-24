@@ -76,11 +76,12 @@ function generateTeam(teamArray, numOfPLayers){
         teamArray.push(generatePlayer());
     }
 }
-
 function generatePlayer() {
     // pick random first name from firstNames array
+  
     // pick random last name from lastNames array
     // pick random height from 180-220 cm
+
     // start each player with 0 points and 0 fouls
     return {
         FirstName: (Math.random() * (10)).toFixed(),
@@ -104,3 +105,4 @@ function updateTeamScoreInUI(team, addPoints) {
     teamAScore.innerText = teamAScoreNum;
     // same if team === B
 }
+console.log(firstNames[0]);
