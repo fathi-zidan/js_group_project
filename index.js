@@ -104,4 +104,3 @@ function updateTeamScoreInUI(team, addPoints) {
     teamAScore.innerText = teamAScoreNum;
     // same if team === B
 }
-console.log(firstNames[0]);
