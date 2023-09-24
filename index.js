@@ -78,11 +78,12 @@ function generateTeams() {
   generateTeam(teamB, 5);
 }
 
-function generateTeam(teamArray, numOfPLayers){
-    for(let i=0; i<numOfPLayers; i++){
-        teamArray.push(generatePlayer());
-    }
+function generateTeam(teamArray, numOfPLayers) {
+  for (let i = 0; i < numOfPLayers; i++) {
+    teamArray.push(generatePlayer());
+  }
 }
+
 function generatePlayer() {
     // pick random first name from firstNames array
   
@@ -104,18 +105,24 @@ function updateGameTime(newTime) {
 
 function updateTeamScoreInUI(team, addPoints) {
     // add correct flow - if team is A - update A score, else - update B score
-
     if (team === 'A'){
-        const teamAScoreNum = parseInt(teamAScore.innerText);
+        let teamAScoreNum = parseInt(teamAScore.innerText);
         teamAScoreNum += addPoints;
         teamAScore.innerText = teamAScoreNum;
 
     }else if(team === 'B'){
+        let teamBScoreNum = parseInt(teamBScore.innerText);
+    if (team === 'A') {
+        const teamAScoreNum = parseInt(teamAScore.innerText);
+        teamAScoreNum += addPoints;
+        teamAScore.innerText = teamAScoreNum;
+
+    } else if (team === 'B') {
         const teamBScoreNum = parseInt(teamBScore.innerText);
         teamBScoreNum += addPoints;
         teamBScore.innerText = teamBScoreNum;
 
     }
-
+}
 }
 
