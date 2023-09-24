@@ -70,8 +70,6 @@ teamB.splice(0,teamB.length);
       // summarize the game
       const teamAScoreNum = parseInt(teamAScore.innerHTML);
       const teamBScoreNum = parseInt(teamBScore.innerHTML);
-      console.log(teamAScoreNum);
-      console.log(teamBScoreNum);
       if (teamAScoreNum > teamBScoreNum) {
         updateMsg("Team A WON " + teamAScoreNum);
         basketball.style.animation = "winnerA 10s "
