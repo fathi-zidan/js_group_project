@@ -6,6 +6,7 @@ const teamBScore = document.getElementById("teamBScore");
 const teamScore = document.getElementById("teamScore");
 const goalAudio = document.getElementById("goalAudio");
 const foulAudio = document.getElementById("foulAudio");
+const basketball = document.getElementById("basketball");
 /*
     INSTRUCTIONS
     ** game
@@ -56,6 +57,7 @@ teamB.splice(0,teamB.length);
       totalTime += 1;
       updateGameTime(totalTime);
       currentEventTimer++;
+      basketball.style.animation = "reset 2s infinite"
       if(currentEventTimer >= eventEveryXtime){
         currentEventTimer = 0;
         generateEvent();
@@ -70,14 +72,14 @@ teamB.splice(0,teamB.length);
       const teamBScoreNum = teamBScore.innerHTML;
       if (teamAScoreNum > teamBScoreNum) {
         updateMsg("Team A WON " + teamAScoreNum);
+        basketball.style.animation = "winnerA 10s "
       } else if (teamAScoreNum < teamBScoreNum) {
         updateMsg("Team B WON " + teamBScoreNum);
+        basketball.style.animation = "winnerB 10s "
       } else {
         updateMsg("It is Tie " + teamAScoreNum);
       }
       msgBoard.style.fontSize =  "100%";
-    //   msgBoard.style.fontSize =  "30px";
-    //   msgBoard.style.paddingTop =  "5px";
       msgBoard.innerText += '\n' +"Team A";
       teamA.forEach(player => {
         if(player.Points > 0){
@@ -97,7 +99,7 @@ teamB.splice(0,teamB.length);
         }
       });
     }
-  }, 500);
+  }, 2000);
   // when the game time is done - check which team won and generate the message with team name, final score, and top scorrer from the team
 }
 function updateMsg(newMsg) {
@@ -134,9 +136,11 @@ function updateTeamScoreInUI(team, addPoints) {
     // add correct flow - if team is A - update A score, else - update B score
     if (team === 'A'){
         let teamAScoreNum = parseInt(teamAScore.innerText);
+        basketball.style.animation = "teamA 2s"
         teamAScoreNum += addPoints;
         teamAScore.innerText = teamAScoreNum;
-    }else if(team === 'B'){
+      }else if(team === 'B'){
+        basketball.style.animation = "teamB 2s"
         let teamBScoreNum = parseInt(teamBScore.innerText);
         teamBScoreNum += addPoints;
         teamBScore.innerText = teamBScoreNum;
@@ -181,9 +185,11 @@ function generateEvent(){
 
             if(team==='A'){
                 teamA[randomPlayer].Fouls ++;
+                basketball.style.animation = "foul 2s" 
                 currentEventMessage ="FOUL:" + teamA[randomPlayer].FirstName +" " +teamA[randomPlayer].LastName;
-            } else {
+              } else {
                 teamB[randomPlayer].Fouls ++;
+                basketball.style.animation = "foul 2s" 
                 currentEventMessage ="FOUL:" + teamB[randomPlayer].FirstName +" " +teamB[randomPlayer].LastName;
             }
             if(teamA[randomPlayer].Fouls == 6){
