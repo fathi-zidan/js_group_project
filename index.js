@@ -63,8 +63,28 @@ function startGame() {
       } else {
         updateMsg("It is Tie " + teamAScoreNum);
       }
+      msgBoard.style.fontSize =  "12px";
+      msgBoard.style.paddingTop =  "5px";
+      msgBoard.innerText += '\n' +"Team A";
+      teamA.forEach(player => {
+        if(player.Points > 0){
+          msgBoard.innerText += '\n' +` ${player.FirstName} ${player.LastName} Scores ${player.Points}`;
+        }
+        if(player.Fouls > 0){
+          msgBoard.innerText += '\n' +` ${player.FirstName} ${player.LastName} has ${player.Fouls} fouls`;
+        }
+      });
+      msgBoard.innerText += '\n' +"Team B";
+      teamB.forEach(player => {
+        if(player.Points > 0){
+          msgBoard.innerText += '\n' + ` ${player.FirstName} ${player.LastName} Scores ${player.Points}`;
+        }
+        if(player.Fouls > 0){
+          msgBoard.innerText += '\n' + ` ${player.FirstName} ${player.LastName} has ${player.Fouls} fouls`;
+        }
+      });
     }
-  }, 1000);
+  }, 100);
   // when the game time is done - check which team won and generate the message with team name, final score, and top scorrer from the team
 }
 function updateMsg(newMsg) {
@@ -74,7 +94,6 @@ function generateTeams() {
   // run generate player 5 times for each team
   // populate each team array with 5 players each
   generateTeam(teamA, 5);
-  console.log(teamA);
   generateTeam(teamB, 5);
 }
 function generateTeam(teamArray, numOfPLayers) {
@@ -113,7 +132,6 @@ function updateTeamScoreInUI(team, addPoints) {
 }
 function generateEvent(){
 
-    console.log("Event");
     let team = (Math.random() * (2 - 1 ) + 1).toFixed();
 
     let randomPlayer = (Math.random() * 4).toFixed();
