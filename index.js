@@ -68,12 +68,12 @@ function generateTeams() {
     // run generate player 5 times for each team
     // populate each team array with 5 players each
 }
-
 function generatePlayer() {
     // pick random first name from firstNames array
+  
     // pick random last name from lastNames array
     // pick random height from 180-220 cm
-    // start each player with 0 points and 0 fouls
+    // start each player with 0 points and 0 fouls 
 }
 
 function updateGameTime(newTime) {
@@ -89,3 +89,4 @@ function updateTeamScoreInUI(team, addPoints) {
     teamAScore.innerText = teamAScoreNum;
     // same if team === B
 }
+console.log(firstNames[0]);
