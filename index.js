@@ -71,14 +71,14 @@ function generateTeams() {
     generateTeam(teamB, 5);
 }
 
-function generateTeam(teamArray, numOfPLayers){
-    for(let i=0; i<numOfPLayers; i++){
+function generateTeam(teamArray, numOfPLayers) {
+    for (let i = 0; i < numOfPLayers; i++) {
         teamArray.push(generatePlayer());
     }
 }
 function generatePlayer() {
     // pick random first name from firstNames array
-  
+
     // pick random last name from lastNames array
     // pick random height from 180-220 cm
 
@@ -88,7 +88,7 @@ function generatePlayer() {
         LastName: (Math.random() * (10)).toFixed(),
         PlayerHeight: (Math.random() * (220 - 180) + 180).toFixed(),
         Points: 0,
-        Fouls:0
+        Fouls: 0
     }
 }
 function updateGameTime(newTime) {
@@ -98,17 +98,16 @@ function updateGameTime(newTime) {
 function updateTeamScoreInUI(team, addPoints) {
     // add correct flow - if team is A - update A score, else - update B score
 
-    if (team === 'A'){
+    if (team === 'A') {
         const teamAScoreNum = parseInt(teamAScore.innerText);
         teamAScoreNum += addPoints;
         teamAScore.innerText = teamAScoreNum;
 
-    }else if(team === 'B'){
+    } else if (team === 'B') {
         const teamBScoreNum = parseInt(teamBScore.innerText);
         teamBScoreNum += addPoints;
         teamBScore.innerText = teamBScoreNum;
 
     }
-    
-    
+
 }
