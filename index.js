@@ -67,15 +67,31 @@ function updateMsg(newMsg) {
 function generateTeams() {
     // run generate player 5 times for each team
     // populate each team array with 5 players each
+    generateTeam(teamA, 5);
+    generateTeam(teamB, 5);
+}
+
+function generateTeam(teamArray, numOfPLayers){
+    for(let i=0; i<numOfPLayers; i++){
+        teamArray.push(generatePlayer());
+    }
 }
 function generatePlayer() {
     // pick random first name from firstNames array
   
     // pick random last name from lastNames array
     // pick random height from 180-220 cm
-    // start each player with 0 points and 0 fouls 
-}
 
+    // start each player with 0 points and 0 fouls
+    return {
+        FirstName: (Math.random() * (10)).toFixed(),
+        LastName: (Math.random() * (10)).toFixed(),
+        PlayerHeight: (Math.random() * (220 - 180) + 180).toFixed(),
+        Points: 0,
+        Fouls:0
+    }
+}
+generatePlayer()
 function updateGameTime(newTime) {
     gameTimeNum.innerText = newTime;
 }
