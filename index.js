@@ -33,6 +33,17 @@ const teamScore = document.getElementById("teamScore");
 startBtn.addEventListener("click", startGame);
 function startGame() {
   updateMsg("start game!");
+
+  //RESET
+  msgBoard.style.fontSize =  "4em";
+  msgBoard.style.padding =  "4rem";
+  teamAScore.textContent = 0;
+  teamBScore.textContent = 0;
+//   teamA.length = 0;
+//   teamB.length = 0;
+teamA.splice(0,teamA.length);
+teamB.splice(0,teamB.length);
+
   generateTeams();
   let totalTime = 0;
   // start timer, generate random events, update date accordingly until game is done.
@@ -42,7 +53,6 @@ function startGame() {
       // generate events if X amount of time passed from the last event.
       totalTime += 1;
       updateGameTime(totalTime);
-      
       currentEventTimer++;
       if(currentEventTimer >= eventEveryXtime){
         currentEventTimer = 0;
@@ -63,8 +73,9 @@ function startGame() {
       } else {
         updateMsg("It is Tie " + teamAScoreNum);
       }
-      msgBoard.style.fontSize =  "12px";
-      msgBoard.style.paddingTop =  "5px";
+      msgBoard.style.fontSize =  "100%";
+    //   msgBoard.style.fontSize =  "30px";
+    //   msgBoard.style.paddingTop =  "5px";
       msgBoard.innerText += '\n' +"Team A";
       teamA.forEach(player => {
         if(player.Points > 0){
