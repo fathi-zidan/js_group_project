@@ -103,15 +103,20 @@ function updateGameTime(newTime) {
 }
 
 function updateTeamScoreInUI(team, addPoints) {
-  // add correct flow - if team is A - update A score, else - update B score
+    // add correct flow - if team is A - update A score, else - update B score
 
-  if (team === "A") {
-    const teamAScoreNum = parseInt(teamAScore.innerText);
-    teamAScoreNum += addPoints;
-    teamAScore.innerText = teamAScoreNum;
-  } else if (team === "B") {
-    const teamBScoreNum = parseInt(teamBScore.innerText);
-    teamBScoreNum += addPoints;
-    teamBScore.innerText = teamBScoreNum;
-  }
+    if (team === 'A'){
+        let teamAScoreNum = parseInt(teamAScore.innerText);
+        teamAScoreNum += addPoints;
+        teamAScore.innerText = teamAScoreNum;
+
+    }else if(team === 'B'){
+        let teamBScoreNum = parseInt(teamBScore.innerText);
+        teamBScoreNum += addPoints;
+        teamBScore.innerText = teamBScoreNum;
+
+    }
+    
+    
 }
+
