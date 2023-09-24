@@ -41,6 +41,7 @@ function startGame() {
       // generate events if X amount of time passed from the last event.
       totalTime += 1;
       updateGameTime(totalTime);
+        generateEvent();
       
     } else {
       clearInterval(gameInterval);
@@ -101,5 +102,9 @@ function updateTeamScoreInUI(team, addPoints) {
         teamBScore.innerText = teamBScoreNum;
     }
     
-    
+}
+function generateEvent(){
+    let team = (Math.random() * (2 - 1 ) + 1).toFixed();
+    team = team == 1 ? 'A' : "B";
+    updateTeamScoreInUI(team , (Math.random() * (3 - 2 ) + 2).toFixed())
 }
