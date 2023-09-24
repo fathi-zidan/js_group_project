@@ -133,7 +133,18 @@ function generateEvent(){
 
             break;
         case 1:
-            //FOULS
+          team = team == 1 ? 'A' : "B";
+            if(team==='A'){
+                teamA[randomPlayer].Fouls ++;
+            } else {
+                teamB[randomPlayer].Fouls ++;
+            }
+            if(teamA[randomPlayer].Fouls == 6){
+              teamA[randomPlayer].isSuspended = true;
+            }else{
+              teamB[randomPlayer].isSuspended = true;
+            }
+            
             break;
     
         default:
