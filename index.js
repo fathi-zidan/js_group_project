@@ -46,6 +46,7 @@ function startGame() {
     let gameInterval = setInterval(function () {
         if (totalTime < gameTime) {
             // generate events if X amount of time passed from the last event.
+
             totalTime += 1;
             updateGameTime(totalTime);
 
@@ -54,7 +55,7 @@ function startGame() {
             updateMsg('game over!');
             // summarize the game
         }
-    }, 5000);
+    }, 100);
 
     // when the game time is done - check which team won and generate the message with team name, final score, and top scorrer from the team
 
@@ -99,12 +100,12 @@ function updateTeamScoreInUI(team, addPoints) {
     // add correct flow - if team is A - update A score, else - update B score
 
     if (team === 'A'){
-        const teamAScoreNum = parseInt(teamAScore.innerText);
+        let teamAScoreNum = parseInt(teamAScore.innerText);
         teamAScoreNum += addPoints;
         teamAScore.innerText = teamAScoreNum;
 
     }else if(team === 'B'){
-        const teamBScoreNum = parseInt(teamBScore.innerText);
+        let teamBScoreNum = parseInt(teamBScore.innerText);
         teamBScoreNum += addPoints;
         teamBScore.innerText = teamBScoreNum;
 
