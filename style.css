@@ -76,3 +76,46 @@ article#gameTime {
     align-items: center;
     width: 60%;
 }
+#basketball{
+    position: absolute;
+    top: 75vh;
+    left: 46vw;
+    width: 100px;
+    height: 100px;
+}
+@keyframes reset{
+    50%{
+        transform: translate(0px , 0px) rotate(-180deg) scale(1);
+    }   
+}
+@keyframes teamA{
+    0%{
+        transform: translate(0px , 0px);
+    }
+    50%{
+        transform: translate(-450px , -150px) rotate(-180deg);
+    }   
+}
+@keyframes teamB{
+    0%{
+        transform: translate(0px , 0px);
+    }
+    50%{
+        transform: translate(450px , -150px) rotate(180deg);
+    }   
+}
+@keyframes foul{
+    50%{
+        transform: translate(0px , 0px) scale(2);
+    }   
+}
+@keyframes winnerA{
+    to{
+        transform: translate(-500px , -150px) rotate(-180deg);
+    }   
+}
+@keyframes winnerB{
+    to{
+        transform: translate(400px , -150px) rotate(180deg);
+    }   
+}
