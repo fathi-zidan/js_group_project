@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game manager</title>
+    <script defer src="constants.js"></script>
+    <script defer src="index.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- random events - score, foal, timeout, half time, game end -->
+    <!-- for each event - log it, save it to game summary, update stats -->
+    <!-- stats: players: names, heights, points, foals -->
+    <!-- max fouls allowed - 6 -->
+    <!-- total game time - 60 mins -->
+    <!-- team with total score highest wins -->
+    <!-- create constants -->
+    <!-- generate random names - family names and personal names, height -->
+
+    <main>
+        <section><button id="startBtn">start game</button></section>
+        <section>
+            <article id="gameTime">
+                <p>Game Time</p>
+                <p id="gameTimeNum">0</p>
+            </article>
+        </section>
+        <section id="msgBoard"></section>
+        <section id="teamScore">
+            <article>
+                <h3>team A score</h3>
+                <h4 id="teamAScore">0</h4>
+            </article>
+            <article>
+                <h3>team B score</h3>
+                <h4 id="teamBScore">0</h4>
+            </article>
+        </section>
+    </main>
+</body>
+
+</html>

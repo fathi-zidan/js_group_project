@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html, body {
+    width: 100%;
+    height: 100vh;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    background-image: url('./assets/empty-basketball-court.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+button {
+    background-color: #0c0730;
+    color: white;
+    border: 2px solid lightblue;
+    border-radius: 5%;
+    padding: 1%;
+    font-size: 2em;
+}
+
+button:hover {
+    background-color: #6943d1;
+    cursor: pointer;
+}
+
+section#msgBoard {
+    width: 60%;
+    height: 40%;
+    margin: 20px auto;
+    background-color: #211661e2;
+    padding: 4rem;
+    border: 4px solid darkgray;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: white;
+    font-weight: bold;
+    font-size: 4em;
+}
+
+section#teamScore {
+    display: flex;
+    width: 90%;
+    margin: auto;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 3rem;
+    text-align: center;
+    font-size: 4rem;
+}
+
+article#gameTime {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 60%;
+}
